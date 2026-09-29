@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6e3c2">
+  <meta name="theme-color" content="#643823">
   <meta name="description" content="Berke & Guoda.">
   <title>Berke & Guoda</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23a74c2c'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia' font-weight='bold' font-size='44' fill='%23ffeed4'%3E%26%3C/text%3E%3C/svg%3E">
@@ -11,21 +11,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: light; --cream: #f6e3c2; --ink: #663621; --orange: #ba5b2f; --yellow: #ffd786; --line: #9f5f3a55; }
+    :root { color-scheme: dark; --ink: #fff0d6; --orange: #dd9856; --yellow: #ffd786; }
     * { box-sizing: border-box; }
     html { font-size: 16px; }
-    body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 10% 0%, #ffeed0 0%, transparent 53%), radial-gradient(ellipse at 100% 80%, #edbd80 0%, transparent 52%), var(--cream); color: var(--ink); font-family: 'Nunito', sans-serif; -webkit-font-smoothing: antialiased; }
-    ::selection { color: var(--ink); background: var(--yellow); }
-    .page { width: min(calc(100% - 76px), 1500px); margin: 0 auto; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 102px; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 78% 28%, #b76b35 0%, transparent 33%), linear-gradient(135deg, #4e2e22, #824727 60%, #5d3626); color: var(--ink); font-family: 'Nunito', sans-serif; -webkit-font-smoothing: antialiased; }
+    body::before { content: ''; position: fixed; inset: -80px; z-index: 0; background: url('assets/autumn-neighborhood.png') center / cover no-repeat; filter: blur(70px) saturate(.75); opacity: .25; pointer-events: none; }
+    ::selection { color: #522915; background: var(--yellow); }
+    .page { position: relative; z-index: 1; width: min(calc(100% - 44px), 1600px); margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 90px; padding: 0 5px; }
     .brand { display: flex; align-items: center; gap: 12px; font-family: 'Bree Serif', Georgia, serif; font-size: 23px; letter-spacing: -.04em; }
-    .brand-badge { width: 43px; height: 43px; border-radius: 14px; display: grid; place-items: center; background: var(--orange); color: #ffecd1; box-shadow: 0 4px 0 #793819; font-family: 'Bree Serif', Georgia, serif; font-size: 28px; line-height: 1; padding-bottom: 3px; }
-    .domain { font-size: 15px; font-weight: 800; letter-spacing: .015em; color: #81492d; }
-    main { padding: 5px 0 0; }
-    .hero { position: relative; isolation: isolate; min-height: 660px; border: 10px solid #fff1d9; border-radius: 31px; box-shadow: 0 14px 0 #bc704b, 0 28px 50px #84431826; overflow: hidden; background: #97491f; }
+    .brand-badge { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: #d48543; color: #4d281b; box-shadow: 0 3px 0 #422216; font-family: 'Bree Serif', Georgia, serif; font-size: 26px; line-height: 1; padding-bottom: 3px; }
+    .domain { font-size: 15px; font-weight: 800; letter-spacing: .015em; color: #f4d9b7; }
+    main { padding: 0 0 30px; }
+    .hero { position: relative; isolation: isolate; min-height: 710px; border: 1px solid #ffd9a968; border-radius: 20px; box-shadow: 0 22px 65px #321b1680; overflow: hidden; background: #97491f; }
     .hero::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #3d201ac7 0%, #4f26127d 33%, transparent 72%), linear-gradient(0deg, #3d201a42, transparent 55%); pointer-events: none; }
     .hero img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; animation: image-enter 1.6s ease-out both; }
-    .hero-content { position: relative; z-index: 3; display: flex; align-items: center; min-height: 640px; padding: 5%; }
+    .hero-content { position: relative; z-index: 3; display: flex; align-items: center; min-height: 708px; padding: 5%; }
     h1 { margin: 0; color: #fff5dc; font-family: 'Bree Serif', Georgia, serif; font-size: clamp(86px, 9vw, 155px); font-weight: 400; line-height: .95; letter-spacing: -.052em; text-shadow: 0 7px 17px #3a1a1a54; animation: title-enter .9s cubic-bezier(.22, 1, .36, 1) .08s both; }
     h1 .line { display: block; }
     h1 .amp { color: var(--yellow); font-size: .83em; line-height: 1; margin-left: 12px; }
@@ -40,15 +41,13 @@
     .falling.two { left: 51%; width: 12px; height: 12px; background: #bf642e; animation-duration: 16s; animation-delay: -13s; }
     .falling.three { left: 82%; width: 20px; height: 20px; background: #f2b458; animation-duration: 19s; animation-delay: -2s; }
     .falling.four { left: 93%; width: 13px; height: 13px; background: #dc7e35; animation-duration: 17s; animation-delay: -9s; }
-    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 42px 2px 30px; color: #784227; font-size: 15px; font-weight: 800; }
-    .footer-mark { color: var(--orange); font-family: 'Bree Serif', Georgia, serif; font-size: 25px; line-height: 1; }
     @keyframes image-enter { from { transform: scale(1.065); filter: saturate(.78); } to { transform: scale(1); filter: saturate(1); } }
     @keyframes title-enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes twinkle { 0%, 100% { opacity: .48; transform: scale(.84) rotate(-7deg); } 50% { opacity: 1; transform: scale(1.14) rotate(7deg); } }
     @keyframes fall { from { translate: -20px -10px; rotate: 0deg; opacity: 0; } 10% { opacity: .9; } 85% { opacity: .8; } to { translate: 150px 850px; rotate: 540deg; opacity: 0; } }
-    @media (min-width: 1600px) { .hero { min-height: 740px; } .hero-content { min-height: 720px; } }
-    @media (max-width: 900px) { .page { width: calc(100% - 40px); } .hero { min-height: 620px; } .hero-content { min-height: 600px; padding: 7%; } .hero::after { background: linear-gradient(90deg, #3d201abf 0%, #4f26126b 55%, transparent 95%), linear-gradient(0deg, #3d201a50, transparent 60%); } h1 { font-size: clamp(74px, 12vw, 116px); } }
-    @media (max-width: 600px) { .page { width: calc(100% - 26px); } header { min-height: 85px; gap: 10px; padding: 0 4px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 37px; height: 37px; border-radius: 11px; font-size: 24px; box-shadow: 0 3px 0 #793819; } .domain { font-size: 12px; } .hero { min-height: 660px; border-width: 7px; border-radius: 24px; box-shadow: 0 10px 0 #bc704b, 0 24px 36px #84431826; } .hero-content { min-height: 646px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } footer { padding-top: 34px; padding-bottom: 22px; font-size: 13px; } }
+    @media (min-width: 1600px) { .hero { min-height: 760px; } .hero-content { min-height: 758px; } }
+    @media (max-width: 900px) { .page { width: calc(100% - 28px); } .hero { min-height: 620px; } .hero-content { min-height: 618px; padding: 7%; } .hero::after { background: linear-gradient(90deg, #3d201abf 0%, #4f26126b 55%, transparent 95%), linear-gradient(0deg, #3d201a50, transparent 60%); } h1 { font-size: clamp(74px, 12vw, 116px); } }
+    @media (max-width: 600px) { .page { width: calc(100% - 20px); } header { min-height: 76px; gap: 10px; padding: 0 7px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 35px; height: 35px; border-radius: 10px; font-size: 23px; box-shadow: 0 2px 0 #422216; } .domain { font-size: 12px; } main { padding-bottom: 20px; } .hero { min-height: 660px; border-radius: 17px; box-shadow: 0 14px 35px #321b166b; } .hero-content { min-height: 658px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } }
     @media (max-width: 359px) { .domain { font-size: 11px; } .brand { font-size: 16px; } h1 { font-size: 60px; } .hero-content { padding-left: 6%; padding-right: 6%; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .falling { display: none; } }
   </style>
@@ -67,7 +66,6 @@
         <span class="falling one" aria-hidden="true"></span><span class="falling two" aria-hidden="true"></span><span class="falling three" aria-hidden="true"></span><span class="falling four" aria-hidden="true"></span>
       </section>
     </main>
-    <footer><span>Berke & Guoda</span><span class="footer-mark" aria-hidden="true">✦</span><span>berkeandguoda.com</span></footer>
   </div>
 </body>
 </html>
