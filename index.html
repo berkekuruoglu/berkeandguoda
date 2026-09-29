@@ -82,10 +82,6 @@
     .rating-stars { width: max-content; max-width: 100%; overflow: hidden; white-space: nowrap; font-family: Georgia, serif; font-size: 18px; letter-spacing: .03em; background: linear-gradient(90deg, #b75d2f var(--fill), #cbb9a1 var(--fill)); background-clip: text; -webkit-background-clip: text; color: transparent; }
     .rating-value { white-space: nowrap; font-variant-numeric: tabular-nums; }
     .rating-pending { grid-column: 2 / 4; color: #866c59; font-size: 13px; font-weight: 700; }
-    .film-source { max-width: 1120px; margin: 20px auto 0; color: #ffe5ba; font-size: 13px; font-weight: 700; text-align: right; }
-    .film-source a { color: inherit; text-underline-offset: 4px; }
-    .film-source a:hover { color: #fff8e8; }
-    .film-source a:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
     @keyframes image-enter { from { transform: scale(1.065); opacity: .82; } to { transform: scale(1); opacity: 1; } }
     @keyframes title-enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes twinkle { 0%, 100% { opacity: .48; transform: scale(.84) rotate(-7deg); } 50% { opacity: 1; transform: scale(1.14) rotate(7deg); } }
@@ -94,7 +90,7 @@
     @media (max-width: 900px) { .page { width: calc(100% - 28px); } .hero { min-height: 620px; } .hero-content { min-height: 618px; padding: 7%; } .hero::after { background: linear-gradient(90deg, #3d201abf 0%, #4f26126b 55%, transparent 95%), linear-gradient(0deg, #3d201a50, transparent 60%); } h1 { font-size: clamp(74px, 12vw, 116px); } }
     @media (max-width: 1000px) { .film-grid { grid-template-columns: 1fr; max-width: 550px; gap: 16px; } }
     @media (max-width: 600px) { .page { width: calc(100% - 20px); } header { min-height: 76px; gap: 10px; padding: 0 7px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 35px; height: 35px; border-radius: 10px; font-size: 23px; box-shadow: 0 2px 0 #422216; } .domain { display: none; } .film-link { font-size: 14px; } main { padding-bottom: 20px; } .hero { min-height: 660px; border-radius: 17px; box-shadow: 0 14px 35px #321b166b; } .hero-content { min-height: 658px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } .films { padding: 57px 8px 32px; } .films-mark { font-size: 28px; } .film-card { grid-template-columns: 112px minmax(0, 1fr); gap: 13px; } .film-poster, .poster-fallback { width: 112px; height: 168px; } .film-info { padding: 2px 1px 0 0; } .film-title { font-size: 20px; } .rating-row { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 3px; padding: 6px 0; font-size: 12px; } .rating-stars { font-size: 15px; letter-spacing: 0; } .rating-pending { font-size: 12px; } }
-    @media (max-width: 600px) { body::before { opacity: .10; } .night-lights { display: none; } .scene-toggle { right: 14px; bottom: 14px; padding: 8px 12px; font-size: 12px; } .film-source { margin-top: 16px; font-size: 12px; text-align: center; } .film-card { gap: 19px; } .ticket-seam { left: 130px; } .film-number { font-size: 10px; margin-bottom: 5px; } }
+    @media (max-width: 600px) { body::before { opacity: .10; } .night-lights { display: none; } .scene-toggle { right: 14px; bottom: 14px; padding: 8px 12px; font-size: 12px; } .film-card { gap: 19px; } .ticket-seam { left: 130px; } .film-number { font-size: 10px; margin-bottom: 5px; } }
     @media (max-width: 380px) { .film-card { grid-template-columns: 90px minmax(0, 1fr); gap: 16px; } .ticket-seam { left: 105px; } .film-poster, .poster-fallback { width: 90px; height: 135px; } .film-title { font-size: 18px; } .rating-stars { font-size: 13px; } }
     @media (max-width: 359px) { .domain { font-size: 11px; } .brand { font-size: 16px; } h1 { font-size: 60px; } .hero-content { padding-left: 6%; padding-right: 6%; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .falling { display: none; } .scene-toggle:hover, .scene-toggle:active { transform: none; } }
@@ -113,12 +109,11 @@
         <span class="star star-one" aria-hidden="true">✦</span><span class="star star-two" aria-hidden="true">✦</span><span class="star star-three" aria-hidden="true">✦</span><span class="star star-four" aria-hidden="true">✦</span>
         <span class="falling one" aria-hidden="true"></span><span class="falling two" aria-hidden="true"></span><span class="falling three" aria-hidden="true"></span><span class="falling four" aria-hidden="true"></span>
         <span class="night-lights" aria-hidden="true"></span><span class="night-stars" aria-hidden="true"></span>
-        <button class="scene-toggle" type="button" aria-pressed="false"><span class="scene-icon" aria-hidden="true">☾</span><span class="scene-label">mavi saate geç</span></button>
+        <button class="scene-toggle" type="button" aria-pressed="false"><span class="scene-icon" aria-hidden="true">☾</span><span class="scene-label">akşama geç</span></button>
       </section>
       <section class="films" id="filmler" aria-labelledby="films-title">
         <div class="films-heading"><h2 id="films-title">İzlediğimiz filmler</h2><span class="films-mark" aria-hidden="true">✦</span></div>
         <div id="film-list" aria-live="polite"><p class="films-status">Filmler yükleniyor…</p></div>
-        <p class="film-source">Berke’nin film günlüğü: <a href="https://letterboxd.com/berkekuruoglu/" target="_blank" rel="noopener noreferrer">Letterboxd ↗</a></p>
       </section>
     </main>
   </div>
@@ -131,7 +126,7 @@
       const blueHour = document.documentElement.classList.contains('is-blue-hour');
       sceneToggle.setAttribute('aria-pressed', String(blueHour));
       sceneIcon.textContent = blueHour ? '☀' : '☾';
-      sceneLabel.textContent = blueHour ? 'gün batımına dön' : 'mavi saate geç';
+      sceneLabel.textContent = blueHour ? 'gün batımına dön' : 'akşama geç';
       themeColor.content = blueHour ? '#202a43' : '#643823';
     }
     syncScene();
