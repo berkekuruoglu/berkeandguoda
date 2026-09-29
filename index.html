@@ -22,6 +22,10 @@
     .brand { display: flex; align-items: center; gap: 12px; font-family: 'Bree Serif', Georgia, serif; font-size: 23px; letter-spacing: -.04em; }
     .brand-badge { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: #d48543; color: #4d281b; box-shadow: 0 3px 0 #422216; font-family: 'Bree Serif', Georgia, serif; font-size: 26px; line-height: 1; padding-bottom: 3px; }
     .domain { font-size: 15px; font-weight: 800; letter-spacing: .015em; color: #fff0d6; text-shadow: 0 2px 9px #4b2921d9, 0 0 15px #4b2921d9; }
+    .header-actions { display: flex; align-items: center; gap: 26px; }
+    .film-link { color: #fff0d6; font-size: 15px; font-weight: 800; text-decoration-color: #ffd786; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+    .film-link:hover { color: var(--yellow); }
+    .film-link:focus-visible { outline: 2px solid var(--yellow); outline-offset: 6px; border-radius: 2px; }
     main { padding: 0 0 30px; }
     .hero { position: relative; isolation: isolate; min-height: 710px; border: 1px solid #ffd9a968; border-radius: 20px; box-shadow: 0 22px 65px #321b1680; overflow: hidden; background: #97491f; }
     .hero::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #3d201ac7 0%, #4f26127d 33%, transparent 72%), linear-gradient(0deg, #3d201a42, transparent 55%); pointer-events: none; }
@@ -41,14 +45,34 @@
     .falling.two { left: 51%; width: 12px; height: 12px; background: #bf642e; animation-duration: 16s; animation-delay: -13s; }
     .falling.three { left: 82%; width: 20px; height: 20px; background: #f2b458; animation-duration: 19s; animation-delay: -2s; }
     .falling.four { left: 93%; width: 13px; height: 13px; background: #dc7e35; animation-duration: 17s; animation-delay: -9s; }
+    .films { padding: 76px 12px 72px; scroll-margin-top: 24px; }
+    .films-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid #ffe1ad8a; }
+    .films h2 { margin: 0; color: #fff0d6; font-family: 'Bree Serif', Georgia, serif; font-size: clamp(36px, 4.2vw, 58px); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; text-shadow: 0 3px 12px #4b29214d; }
+    .films-mark { color: var(--yellow); font-family: Georgia, serif; font-size: 36px; line-height: 1; }
+    .films-status { margin-top: 27px; padding: 46px 24px; border: 1px dashed #ffe0a88c; border-radius: 18px; background: #49291f42; color: #fff0d6; text-align: center; font-size: 17px; font-weight: 700; }
+    .film-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 1120px; margin: 28px auto 0; }
+    .film-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 19px; min-width: 0; padding: 12px; border: 1px solid #fff2d4; border-radius: 20px; background: #f5e7c9; color: #5d3425; box-shadow: 0 14px 35px #3b211b3d; }
+    .film-poster, .poster-fallback { display: block; width: 150px; height: 225px; border-radius: 11px; background: #c69c72; }
+    .film-poster { object-fit: cover; }
+    .poster-fallback { display: grid; place-items: center; padding: 20px; color: #5d3425; text-align: center; font-weight: 800; }
+    .film-info { display: flex; flex-direction: column; min-width: 0; padding: 11px 6px 5px 0; }
+    .film-title { margin: 0; font-family: 'Bree Serif', Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.22; overflow-wrap: anywhere; }
+    .film-year { margin: 3px 0 0; color: #7f5b46; font-size: 13px; font-weight: 700; }
+    .film-ratings { margin-top: auto; }
+    .rating-row { display: grid; grid-template-columns: 55px minmax(0, 1fr) auto; align-items: center; gap: 6px; padding: 9px 0; border-top: 1px solid #a77c5c66; font-size: 14px; font-weight: 800; }
+    .rating-stars { width: max-content; max-width: 100%; overflow: hidden; white-space: nowrap; font-family: Georgia, serif; font-size: 18px; letter-spacing: .03em; background: linear-gradient(90deg, #b75d2f var(--fill), #cbb9a1 var(--fill)); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .rating-value { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .rating-pending { grid-column: 2 / 4; color: #866c59; font-size: 13px; font-weight: 700; }
     @keyframes image-enter { from { transform: scale(1.065); filter: saturate(.78); } to { transform: scale(1); filter: saturate(1); } }
     @keyframes title-enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes twinkle { 0%, 100% { opacity: .48; transform: scale(.84) rotate(-7deg); } 50% { opacity: 1; transform: scale(1.14) rotate(7deg); } }
     @keyframes fall { from { translate: -20px -10px; rotate: 0deg; opacity: 0; } 10% { opacity: .9; } 85% { opacity: .8; } to { translate: 150px 850px; rotate: 540deg; opacity: 0; } }
     @media (min-width: 1600px) { .hero { min-height: 760px; } .hero-content { min-height: 758px; } }
     @media (max-width: 900px) { .page { width: calc(100% - 28px); } .hero { min-height: 620px; } .hero-content { min-height: 618px; padding: 7%; } .hero::after { background: linear-gradient(90deg, #3d201abf 0%, #4f26126b 55%, transparent 95%), linear-gradient(0deg, #3d201a50, transparent 60%); } h1 { font-size: clamp(74px, 12vw, 116px); } }
-    @media (max-width: 600px) { .page { width: calc(100% - 20px); } header { min-height: 76px; gap: 10px; padding: 0 7px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 35px; height: 35px; border-radius: 10px; font-size: 23px; box-shadow: 0 2px 0 #422216; } .domain { font-size: 12px; } main { padding-bottom: 20px; } .hero { min-height: 660px; border-radius: 17px; box-shadow: 0 14px 35px #321b166b; } .hero-content { min-height: 658px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } }
+    @media (max-width: 1000px) { .film-grid { grid-template-columns: 1fr; max-width: 550px; gap: 16px; } }
+    @media (max-width: 600px) { .page { width: calc(100% - 20px); } header { min-height: 76px; gap: 10px; padding: 0 7px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 35px; height: 35px; border-radius: 10px; font-size: 23px; box-shadow: 0 2px 0 #422216; } .domain { display: none; } .film-link { font-size: 14px; } main { padding-bottom: 20px; } .hero { min-height: 660px; border-radius: 17px; box-shadow: 0 14px 35px #321b166b; } .hero-content { min-height: 658px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } .films { padding: 57px 8px 32px; } .films-mark { font-size: 28px; } .film-card { grid-template-columns: 112px minmax(0, 1fr); gap: 13px; } .film-poster, .poster-fallback { width: 112px; height: 168px; } .film-info { padding: 2px 1px 0 0; } .film-title { font-size: 20px; } .rating-row { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 3px; padding: 6px 0; font-size: 12px; } .rating-stars { font-size: 15px; letter-spacing: 0; } .rating-pending { font-size: 12px; } }
     @media (max-width: 600px) { body::before { opacity: .10; } }
+    @media (max-width: 380px) { .film-card { grid-template-columns: 90px minmax(0, 1fr); gap: 10px; } .film-poster, .poster-fallback { width: 90px; height: 135px; } .film-title { font-size: 18px; } .rating-stars { font-size: 13px; } }
     @media (max-width: 359px) { .domain { font-size: 11px; } .brand { font-size: 16px; } h1 { font-size: 60px; } .hero-content { padding-left: 6%; padding-right: 6%; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .falling { display: none; } }
   </style>
@@ -57,7 +81,7 @@
   <div class="page">
     <header>
       <div class="brand" aria-label="Berke ve Guoda"><span class="brand-badge" aria-hidden="true">&</span><span>berke & guoda</span></div>
-      <span class="domain">berkeandguoda.com</span>
+      <div class="header-actions"><a class="film-link" href="#filmler">Filmler</a><span class="domain">berkeandguoda.com</span></div>
     </header>
     <main>
       <section class="hero" aria-label="Berke ve Guoda">
@@ -66,7 +90,100 @@
         <span class="star star-one" aria-hidden="true">✦</span><span class="star star-two" aria-hidden="true">✦</span><span class="star star-three" aria-hidden="true">✦</span><span class="star star-four" aria-hidden="true">✦</span>
         <span class="falling one" aria-hidden="true"></span><span class="falling two" aria-hidden="true"></span><span class="falling three" aria-hidden="true"></span><span class="falling four" aria-hidden="true"></span>
       </section>
+      <section class="films" id="filmler" aria-labelledby="films-title">
+        <div class="films-heading"><h2 id="films-title">İzlediğimiz filmler</h2><span class="films-mark" aria-hidden="true">✦</span></div>
+        <div id="film-list" aria-live="polite"><p class="films-status">Filmler yükleniyor…</p></div>
+      </section>
     </main>
   </div>
+  <script>
+    const filmList = document.getElementById('film-list');
+    const ratingFormat = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 1 });
+
+    function ratingRow(name, rating) {
+      const row = document.createElement('div');
+      row.className = 'rating-row';
+      if (rating === null) {
+        row.setAttribute('aria-label', `${name}: henüz puan yok`);
+        const label = document.createElement('span');
+        label.textContent = name;
+        const pending = document.createElement('span');
+        pending.className = 'rating-pending';
+        pending.textContent = 'Henüz puan yok';
+        row.append(label, pending);
+        return row;
+      }
+      row.setAttribute('aria-label', `${name}: ${ratingFormat.format(rating)} / 5`);
+      const label = document.createElement('span');
+      label.textContent = name;
+      const stars = document.createElement('span');
+      stars.className = 'rating-stars';
+      stars.setAttribute('aria-hidden', 'true');
+      stars.style.setProperty('--fill', `${rating * 20}%`);
+      stars.textContent = '★★★★★';
+      const value = document.createElement('span');
+      value.className = 'rating-value';
+      value.textContent = `${ratingFormat.format(rating)}/5`;
+      row.append(label, stars, value);
+      return row;
+    }
+
+    function filmCard(film) {
+      const card = document.createElement('article');
+      card.className = 'film-card';
+      const poster = document.createElement('img');
+      poster.className = 'film-poster';
+      poster.src = film.image;
+      poster.alt = `${film.title} film afişi`;
+      poster.loading = 'lazy';
+      poster.width = 150;
+      poster.height = 225;
+      poster.addEventListener('error', () => {
+        const fallback = document.createElement('div');
+        fallback.className = 'poster-fallback';
+        fallback.textContent = film.title;
+        poster.replaceWith(fallback);
+      }, { once: true });
+      const info = document.createElement('div');
+      info.className = 'film-info';
+      const title = document.createElement('h3');
+      title.className = 'film-title';
+      title.textContent = film.title;
+      info.append(title);
+      if (film.year) {
+        const year = document.createElement('p');
+        year.className = 'film-year';
+        year.textContent = film.year;
+        info.append(year);
+      }
+      const ratings = document.createElement('div');
+      ratings.className = 'film-ratings';
+      ratings.append(ratingRow('Berke', film.berkeRating), ratingRow('Guoda', film.guodaRating));
+      info.append(ratings);
+      card.append(poster, info);
+      return card;
+    }
+
+    async function loadFilms() {
+      try {
+        const response = await fetch('movies.json');
+        if (!response.ok) throw new Error('Film listesi alınamadı');
+        const films = await response.json();
+        if (!Array.isArray(films) || films.some(film => !film.title || !film.image || !Number.isFinite(film.berkeRating) || film.berkeRating < 0 || film.berkeRating > 5 || (film.guodaRating !== null && (!Number.isFinite(film.guodaRating) || film.guodaRating < 0 || film.guodaRating > 5)))) throw new Error('Film listesi geçersiz');
+        if (films.length === 0) {
+          filmList.innerHTML = '<p class="films-status">Henüz film eklemedik.</p>';
+          return;
+        }
+        const grid = document.createElement('div');
+        grid.className = 'film-grid';
+        grid.append(...films.map(filmCard));
+        filmList.replaceChildren(grid);
+      } catch {
+        filmList.innerHTML = '<p class="films-status">Filmler şu anda yüklenemiyor.</p>';
+      }
+    }
+
+    loadFilms();
+  </script>
 </body>
 </html>

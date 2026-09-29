@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Destiny",
+    "year": 2006,
+    "image": "assets/movies/destiny-2006.jpg",
+    "berkeRating": 3.5,
+    "guodaRating": null
+  },
+  {
+    "title": "The Painting Pool",
+    "year": 2013,
+    "image": "assets/movies/the-painting-pool-2013.jpg",
+    "berkeRating": 3,
+    "guodaRating": null
+  }
+]
