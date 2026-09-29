@@ -45,6 +45,15 @@
     .falling.two { left: 51%; width: 12px; height: 12px; background: #bf642e; animation-duration: 16s; animation-delay: -13s; }
     .falling.three { left: 82%; width: 20px; height: 20px; background: #f2b458; animation-duration: 19s; animation-delay: -2s; }
     .falling.four { left: 93%; width: 13px; height: 13px; background: #dc7e35; animation-duration: 17s; animation-delay: -9s; }
+    .gust-layer { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+    .gust-leaf { position: absolute; left: -25px; width: 17px; height: 17px; border-radius: 75% 0 75% 0; background: #f3b35d; box-shadow: inset -3px -3px 0 #a84d2959, 0 2px 6px #3d201a30; opacity: 0; animation: leaf-gust var(--duration) ease-in-out var(--delay) forwards; }
+    .gust-leaf:nth-child(3n + 2) { width: 12px; height: 12px; background: #c86d33; }
+    .gust-leaf:nth-child(3n) { width: 20px; height: 20px; background: #f5ce79; }
+    .wind-button { position: absolute; right: 25px; bottom: 23px; z-index: 5; display: inline-flex; align-items: center; gap: 9px; padding: 10px 15px; border: 1px solid #ffe3adab; border-radius: 999px; background: #3d211cba; box-shadow: 0 4px 18px #24140f70, inset 0 1px #fff6df30; color: #fff2d9; font: 800 13px 'Nunito', sans-serif; letter-spacing: .01em; cursor: pointer; backdrop-filter: blur(6px); transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .wind-button:hover { transform: translateY(-3px) rotate(-2deg); background: #63321ed9; box-shadow: 0 8px 22px #24140f80; }
+    .wind-button:active { transform: translateY(0) rotate(1deg); }
+    .wind-button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+    .wind-icon { width: 13px; height: 13px; border-radius: 75% 0 75% 0; background: #f3b35d; transform: rotate(-30deg); box-shadow: inset -2px -2px 0 #9c4d2866; }
     .films { padding: 76px 12px 72px; scroll-margin-top: 24px; }
     .films-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid #ffe1ad8a; }
     .films h2 { margin: 0; color: #fff0d6; font-family: 'Bree Serif', Georgia, serif; font-size: clamp(36px, 4.2vw, 58px); font-weight: 400; line-height: 1.08; letter-spacing: -.035em; text-shadow: 0 3px 12px #4b29214d; }
@@ -63,18 +72,21 @@
     .rating-stars { width: max-content; max-width: 100%; overflow: hidden; white-space: nowrap; font-family: Georgia, serif; font-size: 18px; letter-spacing: .03em; background: linear-gradient(90deg, #b75d2f var(--fill), #cbb9a1 var(--fill)); background-clip: text; -webkit-background-clip: text; color: transparent; }
     .rating-value { white-space: nowrap; font-variant-numeric: tabular-nums; }
     .rating-pending { grid-column: 2 / 4; color: #866c59; font-size: 13px; font-weight: 700; }
+    .site-footer { display: flex; align-items: center; justify-content: center; gap: 15px; padding: 0 12px 39px; color: #ffe9c1; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-align: center; text-shadow: 0 2px 8px #4b292160; }
+    .site-footer::before, .site-footer::after { content: '✦'; color: #ffd786; font-size: 14px; }
     @keyframes image-enter { from { transform: scale(1.065); filter: saturate(.78); } to { transform: scale(1); filter: saturate(1); } }
     @keyframes title-enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes twinkle { 0%, 100% { opacity: .48; transform: scale(.84) rotate(-7deg); } 50% { opacity: 1; transform: scale(1.14) rotate(7deg); } }
     @keyframes fall { from { translate: -20px -10px; rotate: 0deg; opacity: 0; } 10% { opacity: .9; } 85% { opacity: .8; } to { translate: 150px 850px; rotate: 540deg; opacity: 0; } }
+    @keyframes leaf-gust { 0% { opacity: 0; transform: translate3d(0, 12px, 0) rotate(-25deg) scale(.7); } 12% { opacity: .9; } 55% { opacity: .85; transform: translate3d(var(--mid-x), var(--lift), 0) rotate(210deg) scale(1); } 100% { opacity: 0; transform: translate3d(var(--end-x), var(--settle), 0) rotate(510deg) scale(.8); } }
     @media (min-width: 1600px) { .hero { min-height: 760px; } .hero-content { min-height: 758px; } }
     @media (max-width: 900px) { .page { width: calc(100% - 28px); } .hero { min-height: 620px; } .hero-content { min-height: 618px; padding: 7%; } .hero::after { background: linear-gradient(90deg, #3d201abf 0%, #4f26126b 55%, transparent 95%), linear-gradient(0deg, #3d201a50, transparent 60%); } h1 { font-size: clamp(74px, 12vw, 116px); } }
     @media (max-width: 1000px) { .film-grid { grid-template-columns: 1fr; max-width: 550px; gap: 16px; } }
     @media (max-width: 600px) { .page { width: calc(100% - 20px); } header { min-height: 76px; gap: 10px; padding: 0 7px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 35px; height: 35px; border-radius: 10px; font-size: 23px; box-shadow: 0 2px 0 #422216; } .domain { display: none; } .film-link { font-size: 14px; } main { padding-bottom: 20px; } .hero { min-height: 660px; border-radius: 17px; box-shadow: 0 14px 35px #321b166b; } .hero-content { min-height: 658px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } .films { padding: 57px 8px 32px; } .films-mark { font-size: 28px; } .film-card { grid-template-columns: 112px minmax(0, 1fr); gap: 13px; } .film-poster, .poster-fallback { width: 112px; height: 168px; } .film-info { padding: 2px 1px 0 0; } .film-title { font-size: 20px; } .rating-row { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 3px; padding: 6px 0; font-size: 12px; } .rating-stars { font-size: 15px; letter-spacing: 0; } .rating-pending { font-size: 12px; } }
-    @media (max-width: 600px) { body::before { opacity: .10; } }
+    @media (max-width: 600px) { body::before { opacity: .10; } .wind-button { right: 14px; bottom: 14px; padding: 9px 12px; font-size: 12px; } .site-footer { padding-bottom: 28px; font-size: 11px; } }
     @media (max-width: 380px) { .film-card { grid-template-columns: 90px minmax(0, 1fr); gap: 10px; } .film-poster, .poster-fallback { width: 90px; height: 135px; } .film-title { font-size: 18px; } .rating-stars { font-size: 13px; } }
     @media (max-width: 359px) { .domain { font-size: 11px; } .brand { font-size: 16px; } h1 { font-size: 60px; } .hero-content { padding-left: 6%; padding-right: 6%; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .falling { display: none; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .falling, .gust-leaf { display: none; } .wind-button:hover, .wind-button:active { transform: none; } }
   </style>
 </head>
 <body>
@@ -89,14 +101,46 @@
         <div class="hero-content"><h1><span class="line">Berke</span><span class="line"><span class="amp">&</span><span class="guoda">Guoda</span></span></h1></div>
         <span class="star star-one" aria-hidden="true">✦</span><span class="star star-two" aria-hidden="true">✦</span><span class="star star-three" aria-hidden="true">✦</span><span class="star star-four" aria-hidden="true">✦</span>
         <span class="falling one" aria-hidden="true"></span><span class="falling two" aria-hidden="true"></span><span class="falling three" aria-hidden="true"></span><span class="falling four" aria-hidden="true"></span>
+        <div class="gust-layer" aria-hidden="true"></div>
+        <button class="wind-button" type="button" aria-label="Yaprakları uçur"><span class="wind-icon" aria-hidden="true"></span><span class="wind-label">biraz rüzgâr?</span></button>
       </section>
       <section class="films" id="filmler" aria-labelledby="films-title">
         <div class="films-heading"><h2 id="films-title">İzlediğimiz filmler</h2><span class="films-mark" aria-hidden="true">✦</span></div>
         <div id="film-list" aria-live="polite"><p class="films-status">Filmler yükleniyor…</p></div>
       </section>
     </main>
+    <footer class="site-footer">berke & guoda · küçük internet köşemiz</footer>
   </div>
   <script>
+    const hero = document.querySelector('.hero');
+    const gustLayer = document.querySelector('.gust-layer');
+    const windButton = document.querySelector('.wind-button');
+    const windLabel = document.querySelector('.wind-label');
+    let windResetTimer;
+
+    windButton.addEventListener('click', () => {
+      clearTimeout(windResetTimer);
+      windLabel.textContent = 'rüzgâr esti ✦';
+      windResetTimer = setTimeout(() => { windLabel.textContent = 'biraz rüzgâr?'; }, 2500);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      gustLayer.replaceChildren();
+      const distance = hero.clientWidth + 60;
+      const leafCount = window.innerWidth <= 600 ? 6 : 9;
+      for (let i = 0; i < leafCount; i += 1) {
+        const leaf = document.createElement('span');
+        leaf.className = 'gust-leaf';
+        leaf.style.top = `${18 + ((i * 19) % 57)}%`;
+        leaf.style.setProperty('--mid-x', `${Math.round(distance * .52)}px`);
+        leaf.style.setProperty('--end-x', `${distance}px`);
+        leaf.style.setProperty('--lift', `${-20 - (i % 4) * 13}px`);
+        leaf.style.setProperty('--settle', `${10 + (i % 3) * 18}px`);
+        leaf.style.setProperty('--duration', `${2.7 + (i % 3) * .35}s`);
+        leaf.style.setProperty('--delay', `${i * .11}s`);
+        leaf.addEventListener('animationend', () => leaf.remove(), { once: true });
+        gustLayer.append(leaf);
+      }
+    });
+
     const filmList = document.getElementById('film-list');
     const ratingFormat = new Intl.NumberFormat('tr-TR', { maximumFractionDigits: 1 });
 
