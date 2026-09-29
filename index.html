@@ -3,65 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#241f1a">
+  <meta name="theme-color" content="#f6e3c2">
   <meta name="description" content="Berke & Guoda.">
   <title>Berke & Guoda</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23241f1a'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='44' fill='%23d98d50'%3E%26%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23a74c2c'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia' font-weight='bold' font-size='44' fill='%23ffeed4'%3E%26%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: dark; --paper: #241f1a; --ink: #f0e3cf; --muted: #c5b5a2; --line: #f0e3cf30; --accent: #d98d50; }
+    :root { color-scheme: light; --cream: #f6e3c2; --ink: #663621; --orange: #ba5b2f; --yellow: #ffd786; --line: #9f5f3a55; }
     * { box-sizing: border-box; }
     html { font-size: 16px; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
-    ::selection { background: var(--accent); color: var(--paper); }
-    .page { width: min(100% - 112px, 1440px); margin: auto; }
-    header { min-height: 100px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); gap: 24px; }
-    .wordmark { font-size: 18px; font-weight: 600; letter-spacing: -.04em; }
-    .wordmark span { color: var(--accent); margin: 0 3px; }
-    .domain { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--muted); }
-    main { padding-top: 40px; }
-    .masthead { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-bottom: 39px; }
-    h1 { margin: 0; font-size: clamp(76px, 9.5vw, 147px); font-weight: 500; letter-spacing: -.075em; line-height: 1.08; }
-    h1 > .last-name { color: var(--ink); }
-    h1 .ampersand { color: var(--accent); font-size: .76em; font-weight: 400; letter-spacing: -.07em; padding: 0 .025em; }
-    .accent-rule { height: 7px; width: 60px; background: var(--accent); flex-shrink: 0; margin-bottom: 13px; }
-    .photo { margin: 0; position: relative; border-left: 9px solid var(--accent); }
-    .photo img { display: block; width: 100%; height: clamp(380px, 38vw, 565px); object-fit: cover; object-position: 50% 57%; }
-    .bottom { min-height: 92px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 1px solid var(--line); }
-    .signature { font-size: 14px; font-weight: 500; color: var(--muted); }
-    .photo-credit { color: var(--muted); font-size: 12px; text-underline-offset: 4px; text-decoration-color: #c5b5a266; line-height: 1.5; }
-    .photo-credit:hover { color: var(--ink); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
-    footer { height: 32px; }
-    @media (min-width: 1650px) { .photo img { height: 590px; } }
-    @media (max-width: 1050px) { .page { width: calc(100% - 64px); } header { min-height: 88px; } main { padding-top: 34px; } .masthead { padding-bottom: 32px; } h1 { font-size: clamp(60px, 9.4vw, 110px); } .accent-rule { width: 36px; height: 5px; margin-bottom: 8px; } .photo img { height: 475px; } }
-    @media (max-width: 700px) { .page { width: calc(100% - 40px); } header { min-height: 82px; gap: 12px; } .wordmark { font-size: 16px; } .domain { font-size: 12px; } main { padding-top: 31px; } .masthead { padding-bottom: 30px; } h1 { font-size: clamp(64px, 18.7vw, 126px); line-height: .99; letter-spacing: -.07em; } h1 .last-name { display: block; margin-top: 8px; } h1 .ampersand { font-size: .72em; padding-right: .1em; } .accent-rule { display: none; } .photo { border-left-width: 5px; } .photo img { height: auto; aspect-ratio: 4 / 5; object-position: 50% 50%; } .bottom { min-height: 88px; gap: 14px; align-items: center; } .signature { font-size: 14px; } .photo-credit { font-size: 12px; max-width: 150px; text-align: right; } footer { height: 22px; } }
-    @media (max-width: 359px) { header { align-items: flex-start; justify-content: center; flex-direction: column; gap: 5px; padding: 15px 0; } h1 { font-size: 65px; } .photo-credit { max-width: 130px; } }
-    @media (prefers-reduced-motion: no-preference) { main { animation: appear .55s ease-out both; } @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } } }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 10% 0%, #ffeed0 0%, transparent 53%), radial-gradient(ellipse at 100% 80%, #edbd80 0%, transparent 52%), var(--cream); color: var(--ink); font-family: 'Nunito', sans-serif; -webkit-font-smoothing: antialiased; }
+    ::selection { color: var(--ink); background: var(--yellow); }
+    .page { width: min(calc(100% - 76px), 1500px); margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 102px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: 'Bree Serif', Georgia, serif; font-size: 23px; letter-spacing: -.04em; }
+    .brand-badge { width: 43px; height: 43px; border-radius: 14px; display: grid; place-items: center; background: var(--orange); color: #ffecd1; box-shadow: 0 4px 0 #793819; font-family: 'Bree Serif', Georgia, serif; font-size: 28px; line-height: 1; padding-bottom: 3px; }
+    .domain { font-size: 15px; font-weight: 800; letter-spacing: .015em; color: #81492d; }
+    main { padding: 5px 0 0; }
+    .hero { position: relative; isolation: isolate; min-height: 660px; border: 10px solid #fff1d9; border-radius: 31px; box-shadow: 0 14px 0 #bc704b, 0 28px 50px #84431826; overflow: hidden; background: #97491f; }
+    .hero::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #3d201ac7 0%, #4f26127d 33%, transparent 72%), linear-gradient(0deg, #3d201a42, transparent 55%); pointer-events: none; }
+    .hero img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; animation: image-enter 1.6s ease-out both; }
+    .hero-content { position: relative; z-index: 3; display: flex; align-items: center; min-height: 640px; padding: 5%; }
+    h1 { margin: 0; color: #fff5dc; font-family: 'Bree Serif', Georgia, serif; font-size: clamp(86px, 9vw, 155px); font-weight: 400; line-height: .95; letter-spacing: -.052em; text-shadow: 0 7px 17px #3a1a1a54; animation: title-enter .9s cubic-bezier(.22, 1, .36, 1) .08s both; }
+    h1 .line { display: block; }
+    h1 .amp { color: var(--yellow); font-size: .83em; line-height: 1; margin-left: 12px; }
+    h1 .guoda { margin-left: 6px; }
+    .star { position: absolute; z-index: 3; color: #ffdc8c; font-family: Georgia, serif; text-shadow: 0 2px 10px #79340d66; user-select: none; pointer-events: none; animation: twinkle 5s ease-in-out infinite; }
+    .star-one { top: 12%; left: 9%; font-size: 28px; animation-delay: -.8s; }
+    .star-two { top: 15%; right: 12%; font-size: 45px; animation-delay: -2.4s; }
+    .star-three { bottom: 12%; right: 18%; font-size: 34px; animation-delay: -4.2s; }
+    .star-four { bottom: 12%; left: 5%; font-size: 20px; animation-delay: -1.5s; }
+    .falling { position: absolute; z-index: 4; top: -15%; pointer-events: none; user-select: none; width: 16px; height: 16px; border-radius: 75% 0 75% 0; background: #edaa5f; box-shadow: inset -3px -3px 0 #ae5d2b55; opacity: .84; transform: rotate(35deg); animation: fall linear infinite; }
+    .falling.one { left: 15%; animation-duration: 13s; animation-delay: -7s; }
+    .falling.two { left: 51%; width: 12px; height: 12px; background: #bf642e; animation-duration: 16s; animation-delay: -13s; }
+    .falling.three { left: 82%; width: 20px; height: 20px; background: #f2b458; animation-duration: 19s; animation-delay: -2s; }
+    .falling.four { left: 93%; width: 13px; height: 13px; background: #dc7e35; animation-duration: 17s; animation-delay: -9s; }
+    footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 42px 2px 30px; color: #784227; font-size: 15px; font-weight: 800; }
+    .footer-mark { color: var(--orange); font-family: 'Bree Serif', Georgia, serif; font-size: 25px; line-height: 1; }
+    @keyframes image-enter { from { transform: scale(1.065); filter: saturate(.78); } to { transform: scale(1); filter: saturate(1); } }
+    @keyframes title-enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes twinkle { 0%, 100% { opacity: .48; transform: scale(.84) rotate(-7deg); } 50% { opacity: 1; transform: scale(1.14) rotate(7deg); } }
+    @keyframes fall { from { translate: -20px -10px; rotate: 0deg; opacity: 0; } 10% { opacity: .9; } 85% { opacity: .8; } to { translate: 150px 850px; rotate: 540deg; opacity: 0; } }
+    @media (min-width: 1600px) { .hero { min-height: 740px; } .hero-content { min-height: 720px; } }
+    @media (max-width: 900px) { .page { width: calc(100% - 40px); } .hero { min-height: 620px; } .hero-content { min-height: 600px; padding: 7%; } .hero::after { background: linear-gradient(90deg, #3d201abf 0%, #4f26126b 55%, transparent 95%), linear-gradient(0deg, #3d201a50, transparent 60%); } h1 { font-size: clamp(74px, 12vw, 116px); } }
+    @media (max-width: 600px) { .page { width: calc(100% - 26px); } header { min-height: 85px; gap: 10px; padding: 0 4px; } .brand { gap: 8px; font-size: 18px; } .brand-badge { width: 37px; height: 37px; border-radius: 11px; font-size: 24px; box-shadow: 0 3px 0 #793819; } .domain { font-size: 12px; } .hero { min-height: 660px; border-width: 7px; border-radius: 24px; box-shadow: 0 10px 0 #bc704b, 0 24px 36px #84431826; } .hero-content { min-height: 646px; align-items: flex-end; padding: 0 7% 73px; } .hero img { object-position: 57% center; } .hero::after { background: linear-gradient(0deg, #371c17d9 0%, #4a23195c 55%, transparent 88%); } h1 { font-size: clamp(61px, 18vw, 95px); line-height: .92; } h1 .amp { margin-left: 4px; } h1 .guoda { margin-left: 3px; } .star-one { top: 9%; left: 9%; } .star-two { top: 15%; right: 10%; } .star-three { bottom: 40%; right: 12%; } .star-four { bottom: 10%; left: 83%; } footer { padding-top: 34px; padding-bottom: 22px; font-size: 13px; } }
+    @media (max-width: 359px) { .domain { font-size: 11px; } .brand { font-size: 16px; } h1 { font-size: 60px; } .hero-content { padding-left: 6%; padding-right: 6%; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .falling { display: none; } }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <div class="wordmark" aria-label="Berke ve Guoda">berke<span>&</span>guoda</div>
+      <div class="brand" aria-label="Berke ve Guoda"><span class="brand-badge" aria-hidden="true">&</span><span>berke & guoda</span></div>
       <span class="domain">berkeandguoda.com</span>
     </header>
     <main>
-      <div class="masthead">
-        <h1 aria-label="Berke ve Guoda">Berke <span class="last-name"><span class="ampersand" aria-hidden="true">&</span> Guoda</span></h1>
-        <div class="accent-rule" aria-hidden="true"></div>
-      </div>
-      <figure class="photo">
-        <img src="assets/autumn.jpg" alt="Altın sarısı ve bakır rengi yapraklarla çevrili, sonbahar ışığındaki bir orman yolu." width="2200" height="1467" fetchpriority="high">
-      </figure>
-      <div class="bottom">
-        <span class="signature">Berke & Guoda</span>
-        <a class="photo-credit" href="https://unsplash.com/photos/ATxg6Ofkf4M" target="_blank" rel="noopener noreferrer">Fotoğraf: Markus Spiske / Unsplash</a>
-      </div>
+      <section class="hero" aria-label="Berke ve Guoda">
+        <img src="assets/autumn-neighborhood.png" alt="Gün batımında sonbahar yapraklarıyla çevrili, sıcak ışıklı bir mahalle sokağı illüstrasyonu." width="1942" height="809" fetchpriority="high">
+        <div class="hero-content"><h1><span class="line">Berke</span><span class="line"><span class="amp">&</span><span class="guoda">Guoda</span></span></h1></div>
+        <span class="star star-one" aria-hidden="true">✦</span><span class="star star-two" aria-hidden="true">✦</span><span class="star star-three" aria-hidden="true">✦</span><span class="star star-four" aria-hidden="true">✦</span>
+        <span class="falling one" aria-hidden="true"></span><span class="falling two" aria-hidden="true"></span><span class="falling three" aria-hidden="true"></span><span class="falling four" aria-hidden="true"></span>
+      </section>
     </main>
-    <footer></footer>
+    <footer><span>Berke & Guoda</span><span class="footer-mark" aria-hidden="true">✦</span><span>berkeandguoda.com</span></footer>
   </div>
 </body>
 </html>
